@@ -1,0 +1,16 @@
+#usda 1.0
+(
+    "This file describes the USD Geometric schemata for code generation."
+    subLayers = [
+        @usd/schema.usda@
+    ]
+)
+
+class MyProcMesh "MyProcMesh" (
+  inherits = </Mesh>
+)
+{
+    float length = 1.0 (
+	    doc = """The length"""
+	)
+}
