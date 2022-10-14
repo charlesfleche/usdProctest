@@ -2,12 +2,21 @@
 (
     "This file describes the USD Geometric schemata for code generation."
     subLayers = [
-        @usd/schema.usda@
+        @usdGeom/schema.usda@
     ]
 )
 
+over "GLOBAL" (
+    customData = {
+	     string libraryName = "usdProcTest"
+		 string libraryPath = "pxr/usd/usdProcTest"
+	}
+)
+{
+}
+
 class MyProcMesh "MyProcMesh" (
-  inherits = </Mesh>
+    inherits = </Mesh>
 )
 {
     float length = 1.0 (
