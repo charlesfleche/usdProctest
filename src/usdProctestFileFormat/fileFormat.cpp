@@ -67,32 +67,26 @@ bool UsdProctestFileFormat::Read(SdfLayer *layer, const std::string &resolvedPat
 
   // faceVertexCounts
 
-  // VtIntArray faceVertexCounts(tris.size() / 3, 3);
-  // if (!mesh.CreateFaceVertexCountsAttr(VtValue())) {
-  //   TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "faceVertexCounts");
-  // }
+  VtIntArray faceVertexCounts(6, 4);
+  if (!mesh.CreateFaceVertexCountsAttr(VtValue(faceVertexCounts))) {
+    TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "faceVertexCounts");
+  }
 
   // faceVertexIndices
 
-  // VtIntArray faceVertexIndices(tris.cbegin(), tris.cend());
-  // if (!mesh.CreateFaceVertexIndicesAttr(VtValue())) {
-  //   TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "faceVertexIndices");
-  // }
+  VtIntArray faceVertexIndices = {0, 4, 6, 2, 3, 2, 6, 7, 7, 6, 4, 5, 5, 1, 3, 7, 1, 0, 2, 3, 5, 4, 0, 1};
+  if (!mesh.CreateFaceVertexIndicesAttr(VtValue(faceVertexIndices))) {
+    TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "faceVertexIndices");
+  }
 
   // points
 
-  // if (!mesh.CreatePointsAttr(VtValue())) {
-  //   TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "points");
-  // }
-
-  // normals
-
-  // if(!mesh.CreateNormalsAttr(VtValue(_Convert(normals)))) {
-  //   TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "normals");
-  // }
-  // if (!mesh.SetNormalsInterpolation(UsdGeomTokens->uniform)) {
-  //   TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "normalsInterpolation");
-  // }
+  VtVec3fArray points = {
+    {0.5, 0.5, 0.5}, {0.5, 0.5, -0.5}, {0.5, -0.5, 0.5}, {0.5, -0.5, -0.5}, {-0.5, 0.5, 0.5}, {-0.5, 0.5, -0.5}, {-0.5, -0.5, 0.5}, {-0.5, -0.5, -0.5}
+  };
+  if (!mesh.CreatePointsAttr(VtValue(points))) {
+    TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "points");
+  }
 
   // subdivisionScheme
 
