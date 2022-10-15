@@ -1,0 +1,27 @@
+{
+    "Plugins": [
+        {
+            "Info": {
+                "Types": {
+                    "UsdProctestFileFormat": {
+                        "bases": [
+                            "SdfFileFormat"
+                        ],
+                        "displayName": "Proctest File Format",
+                        "extensions": [
+                            "proctest"
+                        ],
+                        "formatId": "usdProctestFileFormat",
+                        "primary": true,
+                        "target": "usd"
+                    }
+                }
+            },
+            "LibraryPath": "../usdProctest.so",
+            "Name": "usdProctestFileFormat",
+            "ResourcePath": "resources",
+            "Root": "..",
+            "Type": "library"
+        }
+    ]
+}
