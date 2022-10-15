@@ -81,8 +81,18 @@ bool UsdProctestFileFormat::Read(SdfLayer *layer, const std::string &resolvedPat
 
   // points
 
+  const float sideLength = 1.0;
+  const float halfLength = sideLength / 2.0f;
+
   VtVec3fArray points = {
-    {0.5, 0.5, 0.5}, {0.5, 0.5, -0.5}, {0.5, -0.5, 0.5}, {0.5, -0.5, -0.5}, {-0.5, 0.5, 0.5}, {-0.5, 0.5, -0.5}, {-0.5, -0.5, 0.5}, {-0.5, -0.5, -0.5}
+    {halfLength, halfLength, halfLength},
+    {halfLength, halfLength, -halfLength},
+    {halfLength, -halfLength, halfLength},
+    {halfLength, -halfLength, -halfLength},
+    {-halfLength, halfLength, halfLength},
+    {-halfLength, halfLength, -halfLength},
+    {-halfLength, -halfLength, halfLength},
+    {-halfLength, -halfLength, -halfLength}
   };
   if (!mesh.CreatePointsAttr(VtValue(points))) {
     TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "points");
