@@ -2,6 +2,16 @@
     "Plugins": [
         {
             "Info": {
+                "SdfMetadata": {
+                    "Usd_Proctest_SideLength": {
+                        "type": "float",
+                        "displayGroup": "Core",
+                        "appliesTo": [
+                            "prims"
+                        ],
+                        "documentation:": "Length of the cube side."
+                    }
+                },
                 "Types": {
                     "UsdProctestFileFormat": {
                         "bases": [

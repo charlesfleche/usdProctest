@@ -6,6 +6,7 @@
 )
 
 def "Proctest" (
+    Usd_Proctest_SideLength = 1
     payload = @./empty.proctest@
 )
 {
