@@ -111,9 +111,6 @@ bool UsdProctestFileFormat::Read(SdfLayer *layer, const std::string &resolvedPat
   SdfLayer::SplitIdentifier(layer->GetIdentifier(), &layerPath, &args);
   const auto sideLength = _ExtractSideLengthFromArgs(args);
 
-  // TF_ERROR(PROCTEST_CANNOT_CREATE_ATTRIBUTE, "HEY !");
-  TF_WARN("SideLength: %f", sideLength);
-
   SdfLayerRefPtr newLayer = SdfLayer::CreateAnonymous(".usd");
   UsdStageRefPtr stage = UsdStage::Open(newLayer);
 
@@ -195,15 +192,14 @@ bool UsdProctestFileFormat::CanFieldChangeAffectFileFormatArguments(
   const VtValue& contextDependencyData) const
 {
     // Check if the "sideLength" argument changed.
-    // double oldLength = oldValue.IsHolding<double>()
-    //                        ? oldValue.UncheckedGet<double>()
-    //                        : defaultSideLengthValue;
-    // double newLength = newValue.IsHolding<double>()
-    //                        ? newValue.UncheckedGet<double>()
-    //                        : defaultSideLengthValue;
+    auto oldLength = oldValue.IsHolding<float>()
+                           ? oldValue.UncheckedGet<float>()
+                           : defaultSideLengthValue;
+    auto newLength = newValue.IsHolding<float>()
+                           ? newValue.UncheckedGet<float>()
+                           : defaultSideLengthValue;
 
-    // return oldLength != newLength;
-    return true;
+    return oldLength != newLength;
 }
 
 PXR_NAMESPACE_CLOSE_SCOPE

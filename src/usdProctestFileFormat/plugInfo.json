@@ -27,7 +27,7 @@
                     }
                 }
             },
-            "LibraryPath": "../usdProctest.so",
+            "LibraryPath": "../usdProctestFileFormat.so",
             "Name": "usdProctestFileFormat",
             "ResourcePath": "resources",
             "Root": "..",

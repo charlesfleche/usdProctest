@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.12)
 
 project(usdProctest)
 
-include(CTest)
-
 set(PXR_CONFIG_CMAKE ""
     CACHE
     STRING
