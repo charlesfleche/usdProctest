@@ -1,4 +1,4 @@
-# usdProcTest - Tests around USD proceduralism
+# usdProctest - Tests around USD proceduralism
 
 This repo contains a [USD](https://openusd.org) [file format plugin](https://graphics.pixar.com/usd/release/api/sdf_page_front.html#sdf_fileFormatPlugin) that proceduraly generates a cube centered on the origin. The metadata `Usd_Proctest_SideLength` is used to interactively set the length of the cube side.
 
